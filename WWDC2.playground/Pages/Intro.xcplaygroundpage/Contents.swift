@@ -5,7 +5,7 @@
  - - -
  ## About Me
  
- Hello there, my name is **Sandra Grujovic** and I'm a 22 year old M.Sc. Computer Science student from Germany. Have fun with 🥑🐱🐧! All graphics used in this playground have been drawn by me. ❤️
+ Hello there, my name is **Sandra Grujovic** and I'm a 22 year old M.Sc. Computer Science student from Germany 👩‍💻. Have fun with 🥑🐱🐧! All graphics used in this playground have been drawn by me. ❤️
 
  ## The Story
  *Mr. Avocado* and his friends *Mama Cat* and *Pinguino the Kidd* are huge fans of dancing. Recently, Mr. Avocado decided to dig deeper into the wonderful world of classical music. Mama Cat and Pinguino the Kidd are curious - they may not know too know much about Mozart, Bach and Beethoven, but they're dance moves is amazing! ⭐
