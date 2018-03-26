@@ -13,7 +13,7 @@ I created some rhythms for famous tunes from classical music. You can choose fro
 
  */
 
-var view = Setup.startGame(withSong: Song.turkishMarch_2)
+var view = Setup.startGame(withSong: Song.minuet)
 PlaygroundSupport.PlaygroundPage.current.liveView = view
 
 /*:
@@ -37,13 +37,13 @@ yourDance.addSliderRhythm(sliderRhythm: SliderRhythm(length:3), line: 2, positio
 yourDance.addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 9)
 
 // Here you can adjust the gradient!
-yourDance.createGradient(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1), #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))
+yourDance.createGradient(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))
 
 // Uncomment these lines to try out your new rhythm!!!
 /*
 view = Setup.startGame(withDance: yourDance, withSong: .odeToJoy, withDancer: .penguin)
  PlaygroundSupport.PlaygroundPage.current.liveView = view
- */
+*/
 
 
 
