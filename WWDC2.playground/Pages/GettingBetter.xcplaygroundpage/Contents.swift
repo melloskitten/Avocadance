@@ -3,7 +3,7 @@ import PlaygroundSupport
 /*:
  # Getting Better Now! 🕺💃🎼
  
- Our three friends 🥑🐱🐧 are ready to learn more. Mr. Avocado proposes to move on to more difficult songs!
+ Our three friends 🥑🐱🐧 are ready to learn more about classical music. Mr. Avocado proposes to move on to more difficult songs!
 
  - - -
  ## New Songs, New Beginnings 🎼
