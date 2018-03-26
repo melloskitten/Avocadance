@@ -23,7 +23,7 @@ import PlaygroundSupport
  Do you want to check out the other dancers? Simply change `withDancer: .avocado` to something else and ▶️ again!
   (For example: `withDancer: .cat` for Mama Cat 🐱 and `withDancer: .penguin` for Pinguino the Kidd! 🐧 )
  */
-var view = Setup.startGame(withDancer: .penguin)
+var view = Setup.startGame(withDancer: .avocado)
 PlaygroundSupport.PlaygroundPage.current.liveView = view
 
 

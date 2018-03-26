@@ -38,7 +38,7 @@ yourDance.addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 9)
 
 // Uncomment these lines to try out your new rhythm!!!
 /*
- view = Setup.startGame(withDance: yourDance, withSong: .odeToJoy, withDancer: .penguin)
+ view = Setup.startGame(withDance: yourDance, withSong: .minuet, withDancer: .penguin)
  PlaygroundSupport.PlaygroundPage.current.liveView = view
 */
 

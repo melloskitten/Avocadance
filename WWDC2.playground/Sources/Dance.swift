@@ -1,7 +1,7 @@
 import Foundation
 
 
-/* Helper function enabling decreasing for loops.
+/* Helper function enabling decreasing for-loops.
  * Taken from https://stackoverflow.com/questions/24372559/reverse-range-in-swift .*/
 infix operator >>> : RangeFormationPrecedence
 func >>><Bound>(maximum: Bound, minimum: Bound)
@@ -33,7 +33,6 @@ public class Dance {
     }
     
     // Adds a Tap Rhythm in one of the 4 lines, at a position.
-    // This method is publicly available.
     public func addTapRhythm(tapRhythm: TapRhythm, line: Int, position: Int) {
         addNewComponent(rhythm: tapRhythm, line: line, position: position)
     }
@@ -94,10 +93,10 @@ public class Dance {
         }
     }
     
+    // Accompanying rhythms for the "Twinkle Twinkle Little Star".
     public func loadTwinkleTwinkle() {
-        // Twinkle Twinkle Little Star
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 0)
-        addTapRhythm(tapRhythm: TapRhythm(color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)), line: 0, position: 1)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 1)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 2)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 3)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 4)
@@ -105,8 +104,7 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 6)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 8)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 9)
-        addSliderRhythm(sliderRhythm: SliderRhythm(color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), length: 5), line: 1, position: 10)
-        
+        addSliderRhythm(sliderRhythm: SliderRhythm(length: 5), line: 1, position: 10)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 16)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 17)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 18)
@@ -114,8 +112,6 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 20)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 21)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 22)
-        
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 24)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 25)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 26)
@@ -123,7 +119,6 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 28)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 29)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 30)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 32)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 33)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 34)
@@ -131,7 +126,6 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 36)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 37)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 38)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 40)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 41)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 42)
@@ -141,9 +135,9 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 46)
     }
     
+    // Accompanying rhythms for the Bach's "Ode To Joy".
     public func loadOdeToJoy() {
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 0)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 1)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 2)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 3)
@@ -157,7 +151,6 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 11)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 12)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 14)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 16)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 17)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 18)
@@ -172,65 +165,61 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 27)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 28)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 30)
-        
     }
     
+    // Accompanying rhythms for the Bach's "Minuet in G".
     public func loadMinuet() {
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 0)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 0, position: 1)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 4)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 5)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 6)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 1, position: 7)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 10)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 11)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 12)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 3, position: 13)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 2, position: 16)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 1, position: 19)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 22)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 23)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 24)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 0, position: 25)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 28)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 29)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 30)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 1, position: 31)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 34)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 35)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 36)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 2, position: 37)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 3, position: 40)
         addSliderRhythm(sliderRhythm: SliderRhythm(length: 3), line: 2, position: 43)
-        
     }
     
+    // Accompanying rhythms for the Mozart's "Turkish March" (Part 1).
     public func loadTurkishMarch_1() {
+        addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 1)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 2)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 3)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 4)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 5)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 6)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 7)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 8)
-        addSliderRhythm(sliderRhythm: SliderRhythm(length: 9), line: 2, position: 9)
-        
-        addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 19)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 20)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 21)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 22)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 23)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 24)
-        addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 25)
-        addSliderRhythm(sliderRhythm: SliderRhythm(length: 9), line: 2, position: 26)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 7)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 8)
+        addSliderRhythm(sliderRhythm: SliderRhythm(length: 7), line: 2, position: 9)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 16)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 17)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 18)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 19)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 20)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 21)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 22)
+        addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 23)
+        addSliderRhythm(sliderRhythm: SliderRhythm(length: 9), line: 2, position: 24)
     }
     
+    // Accompanying rhythms for the Mozart's "Turkish March" (Part 2).
     public func loadTurkishMarch_2() {
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 1)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 2)
@@ -248,28 +237,20 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 14)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 15)
         addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 16)
-        
-        //addTapRhythm(tapRhythm: TapRhythm(), line: 3, position: 17)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 18)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 19)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 20)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 21)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 22)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 23)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 24)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 25)
-        
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 26)
         addTapRhythm(tapRhythm: TapRhythm(), line: 0, position: 27)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 28)
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 29)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 30)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 31)
-
-        
-        
-        
     }
 }
 

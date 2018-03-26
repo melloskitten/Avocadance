@@ -80,7 +80,7 @@ public class Setup {
         case .minuet:
             initMusic(gameScene: gameScene, offset: 4.72, fileName: "minuet.m4a")
         case .turkishMarch_1:
-            initMusic(gameScene: gameScene, offset: 4.60, fileName: "turkish_march_1.m4a")
+            initMusic(gameScene: gameScene, offset: 4.65, fileName: "turkish_march_1.m4a")
         case .turkishMarch_2:
             initMusic(gameScene: gameScene, offset: 4.50, fileName: "turkish_march_2.m4a")
         }
