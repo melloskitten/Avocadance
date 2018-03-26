@@ -1,8 +1,9 @@
 import Foundation
+import UIKit
 
 
 /* Helper function enabling decreasing for-loops.
- * Taken from https://stackoverflow.com/questions/24372559/reverse-range-in-swift .*/
+ * SOURCE: https://stackoverflow.com/questions/24372559/reverse-range-in-swift .*/
 infix operator >>> : RangeFormationPrecedence
 func >>><Bound>(maximum: Bound, minimum: Bound)
     -> ReversedRandomAccessCollection<CountableRange<Bound>>
@@ -251,6 +252,39 @@ public class Dance {
         addTapRhythm(tapRhythm: TapRhythm(), line: 1, position: 29)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 30)
         addTapRhythm(tapRhythm: TapRhythm(), line: 2, position: 31)
+    }
+    
+    
+    // This gives all rhythm elements a color so in the end it looks like a gradient
+    // with a transition between startColor and endColor.
+    public func createGradient(_ startColor: UIColor, _ endColor: UIColor) {
+        
+        if components[0].count <= 1 {
+            return
+        }
+        
+        let standardWeight = 1 / (Double(components[0].count-1))
+        
+        for i in 0..<components.count {
+            for j in 0..<components[i].count {
+                if let component = components[i][j] as Rhythm! {
+                    let weight: Double = Double(j) * standardWeight
+                    let color = interpolateColor(startColor: startColor, endColor: endColor, weight: weight)
+                    component.color = color
+                }
+            }
+        }
+    }
+    
+    // Interpolates two colors given a weight.
+    func interpolateColor(startColor: UIColor, endColor: UIColor, weight: Double) -> UIColor {
+        let red = startColor.redValue + (endColor.redValue - startColor.redValue) * CGFloat(weight)
+        let green = startColor.greenValue + (endColor.greenValue - startColor.greenValue) * CGFloat(weight)
+        let blue = startColor.blueValue + (endColor.blueValue - startColor.blueValue) * CGFloat(weight)
+        
+        let middleColor = UIColor(red: red, green: green, blue: blue, alpha: 0.95)
+        
+        return middleColor
     }
 }
 

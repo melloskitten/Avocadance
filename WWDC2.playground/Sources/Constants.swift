@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 public let NUM_OF_LINES = 4
-public let TAP_PENALTY: CGFloat = 0.001
+public let TAP_PENALTY: CGFloat = 0.01
 public let MAX_POINTS: CGFloat = 10.0
 
 public let SCREEN_WIDTH = 600
@@ -32,7 +32,22 @@ public let DANCE_PANEL = "dance_panel.png"
 public let LOGO = "logo.png"
 
 // Paths to music.
-public let ODE_TO_JOY = "ode_to_joy.m4a"
-public let TURKISH_MARCH_1 = "turkish_march_1.m4a"
-public let TURKISH_MARCH_2 = "turkish_march_2.m4a"
-public let TWINKLE_TWINKLE = "twinkle_twinkle.m4a"
+public let ODE_TO_JOY = "music/ode_to_joy.m4a"
+public let MINUET = "music/minuet.m4a"
+public let TURKISH_MARCH_1 = "music/turkish_march_1.m4a"
+public let TURKISH_MARCH_2 = "music/turkish_march_2.m4a"
+public let TWINKLE_TWINKLE = "music/twinkle_twinkle.m4a"
+
+// Music offsets.
+public let TWINKLE_TWINKLE_OFFSET = 4.72
+public let ODE_TO_JOY_OFFSET = 4.72
+public let MINUET_OFFSET = 4.72
+public let TURKISH_MARCH_1_OFFSET = 4.65
+public let TURKISH_MARCH_2_OFFSET = 4.50
+
+// Other offsets.
+public let FALL_COORDINATE: CGFloat = -62
+public let TAP_RHYTHM_SIZE: CGFloat = 50
+public let SLIDER_RHYTHM_WIDTH: CGFloat = 80
+public let SLIDER_RHYTHM_HEIGHT: CGFloat = 80
+

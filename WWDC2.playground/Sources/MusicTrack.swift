@@ -1,10 +1,5 @@
 import Foundation
 import SpriteKit
-// TODO: move all references to other people's work to a seperate file.
-/*
- // Found in https://en.wikipedia.org/wiki/File:Twinkle_Twinkle_Little_Star_plain.ogg
- // FIXME: Rethink if it's smart to leave the audio nodes like this.
- */
 
 /* This class represents a container for the track playing in the current level.
  * The offset adjusts the song so each cadence is playing at the right time

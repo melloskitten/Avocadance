@@ -8,10 +8,9 @@ import UIKit
 public class SliderRhythmShape: SKShapeNode {
     
     var length = 0
+    
     convenience init(rectOf: CGSize, x: CGFloat, y: CGFloat, length: Int, color: UIColor) {
         self.init(rectOf: rectOf)
-        
-        // TODO: Additional setup.
         self.position.x = x
         self.position.y = y
         self.fillColor = color

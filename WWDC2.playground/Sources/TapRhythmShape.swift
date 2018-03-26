@@ -7,8 +7,6 @@ public class TapRhythmShape: SKShapeNode {
     
     convenience init(circleOfRadius: CGFloat, x: CGFloat, y: CGFloat, color: UIColor) {
         self.init(circleOfRadius: circleOfRadius)
-        
-        // TODO: Additional Setup.
         self.position.x = x
         self.position.y = y
         self.fillColor = color

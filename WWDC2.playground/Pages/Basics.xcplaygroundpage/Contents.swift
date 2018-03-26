@@ -3,7 +3,7 @@ import PlaygroundSupport
 /*:
  # Always Start Small First 🎼  !
  
- First, we will start with the easiest song and then gradually try out all the options.T
+ First, we will start with the easiest song (Twinkle Twinkle Little Star ⭐) and then gradually try out all the options.
  
  ## Instructions
  - Circles and rectangle shapes (also called **rhythms**) move from the top of the screen slowly downwards.

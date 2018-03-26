@@ -29,8 +29,9 @@ public class GameScene: SKScene {
         initGestureRecognizer()
     }
     
-    // FIXME: This public can be deleted... most likely.
-    public func setDancerNodes(dancerNodes: [SKSpriteNode]) {
+
+    // This function sets the nodes used in the current level.
+    func setDancerNodes(dancerNodes: [SKSpriteNode]) {
         
         // Remove previous children
         for node in dancerSprites {
@@ -60,7 +61,8 @@ public class GameScene: SKScene {
     }
     
     func initPointLabel() {
-        // TAKEN from Stackoverflow: https://stackoverflow.com/questions/27472692/custom-fonts-in-xcode-playground
+        // Loading in custom font.
+        // SOURCE: https://stackoverflow.com/questions/27472692/custom-fonts-in-xcode-playground
         let cfURL = Bundle.main.url(forResource: "04b", withExtension: "ttf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
 
@@ -113,7 +115,6 @@ public class GameScene: SKScene {
     
     // Method that calculates points given on whether the slider move
     // ended at the "right" time.
-    // TODO: Adjust if needed.
     func pointsForSlider(timeInterval: TimeInterval, _ gestureRecognizer: UIGestureRecognizer) {
         
         let intersectingNodes = getIntersectingNodes(gestureRecognizer: gestureRecognizer)
@@ -134,7 +135,6 @@ public class GameScene: SKScene {
     
     // Method that calculates points given on whether the user
     // started the slider move at the correct time.
-    // TODO: Adjust if needed.
     func pointsForSliderBegin(_ gestureRecognizer: UIGestureRecognizer) {
         
         let intersectingNodes = getIntersectingNodes(gestureRecognizer: gestureRecognizer)
@@ -165,7 +165,6 @@ public class GameScene: SKScene {
     
     // Method that calculates points given on whether the user
     // started the tap at the correct time.
-    // TODO: Adjust if needed.
     func pointsForTap(_ gestureRecognizer: UIGestureRecognizer) {
         
         let intersectingNodes = getIntersectingNodes(gestureRecognizer: gestureRecognizer)
@@ -183,7 +182,6 @@ public class GameScene: SKScene {
     }
     
     // Animates the next dance move
-    // TODO: Doesn't happen when a slider element ends.
         func animateDancer() {
         var rand = (Int(arc4random_uniform(UInt32(4))))
         var previous = 0
@@ -255,17 +253,14 @@ public class GameScene: SKScene {
         return containsSliderRhythm && containsRhythmChecker
     }
     
-    // FIXME: Offsets and size of bars is HARD CODED!
+    // Generates the bar with the dance panels and their corresponding positions.
     func initRhythmCheckerBar(numberOfDanceLines: Int) {
         var zIndex = -999
         for i in 0..<numberOfDanceLines {
             
-            //let offset = i * 125 + 75
-            // i * Int(floor((600-10)/4)) + 62 + 10
             let xOffset = CGFloat(i * Int(floor((550)/4)) + 94)
             let yOffset = CGFloat(150)
             let rhythmChecker = RhythmChecker(imageNamed: "dance_panel.png", x: xOffset, y: yOffset)
-            rhythmChecker.name = "rhythmchecker\(i)"
             rhythmChecker.zPosition = CGFloat(zIndex)
             zIndex = zIndex + 1
             addChild(rhythmChecker)

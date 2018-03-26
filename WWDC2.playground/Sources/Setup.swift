@@ -2,12 +2,10 @@ import PlaygroundSupport
 import Foundation
 import SpriteKit
 
-public enum PredefinedDance {
-    case twinkletwinkle
-}
-
+// This class poses as an interface for the playground pages.
 public class Setup {
-    
+
+    // Loads the scene on the first playground page.
     public static func initIntroScene() -> SKView {
         let introScene = IntroScene(size: CGSize(width: SCREEN_WIDTH, height: SCREEN_HEIGHT))
         let view = SKView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT))
@@ -15,171 +13,127 @@ public class Setup {
         return view
     }
     
+    // This method is the simplest way to initialise the game,
+    // used in the first level with default song and dancer.
     public static func startGame(withDancer dancer: Dancer) -> SKView {
         
-        // SETTING UP SCENE
-        let gameView = SKView(frame: CGRect(x: 0, y: 0, width: 600, height: 775))
-        let gameScene = GameScene(size: CGSize(width: 600, height: 775))
-        gameView.presentScene(gameScene)
+        // Set up game screen.
+        let (gameView, gameScene) = setUpGameScreen()
         
-        // SET UP DANCE
-        let predefinedDance = PredefinedDance.twinkletwinkle
-        let dance = initDance(predefinedDance: predefinedDance)
+        // Set up dance.
+        let dance = initDance(predefinedSong: .twinkletwinkle)
         
-        // INIT DANCE DISPLAYER & display it!
-        // FIXME: Hardcoded values!
-        let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.5, gameScene: gameScene, fallingDownRate: 6)
-        danceDisplayer.displayDance()
+        // Set up dance displayer and the corresponding music.
+        initDanceDisplayer(song: .twinkletwinkle, dance: dance, gameScene: gameScene)
+        initMusic(gameScene: gameScene, song: .twinkletwinkle)
         
-        // TODO: INIT MUSIC
-        initMusic(gameScene: gameScene, offset: 4.72, fileName: "TwinkleTwinkle.m4a")
-        
-        // SET UP DANCER
+        // Set up dancer.
         initDancer(dancer: dancer, gameScene: gameScene)
         
         return gameView
-        
     }
     
-    
-    public static func startGame(withSong: Song) -> SKView {
+    public static func startGame(withSong song: Song) -> SKView {
+        // Set up game screen.
+        let (gameView, gameScene) = setUpGameScreen()
         
-        // SETTING UP SCENE
-        let gameView = SKView(frame: CGRect(x: 0, y: 0, width: 600, height: 775))
-        let gameScene = GameScene(size: CGSize(width: 600, height: 775))
-        gameView.presentScene(gameScene)
+        // Set up dance.
+        let dance = initDance(predefinedSong: song)
         
-        // SET UP DANCE
-        let dance = initDance(preDefinedSong: withSong)
-        
-        // INIT DANCE DISPLAYER & display it!
-        // FIXME: Hardcoded values!
-        //var clockRate = (1/110) * 60
-        switch withSong {
-        case .odeToJoy:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.55, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        case .minuet:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.5, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        case .turkishMarch_1:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.55, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        case .turkishMarch_2:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.55, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        }
+        // Set up dance displayer and the corresponding music.
+        initDanceDisplayer(song: song, dance: dance, gameScene: gameScene)
+        initMusic(gameScene: gameScene, song: song)
 
-        
-        //// TODO: INIT MUSIC
-        //initMusic(gameScene: gameScene, offset: 4.72, fileName: "ode_to_joy.m4a")
-        
-        switch withSong {
-        case .odeToJoy:
-            initMusic(gameScene: gameScene, offset: 4.72, fileName: "ode_to_joy.m4a")
-        case .minuet:
-            initMusic(gameScene: gameScene, offset: 4.72, fileName: "minuet.m4a")
-        case .turkishMarch_1:
-            initMusic(gameScene: gameScene, offset: 4.65, fileName: "turkish_march_1.m4a")
-        case .turkishMarch_2:
-            initMusic(gameScene: gameScene, offset: 4.50, fileName: "turkish_march_2.m4a")
-        }
-        
         // SET UP DANCER
         initDancer(dancer: Dancer.avocado, gameScene: gameScene)
-        
+ 
         return gameView
-        
-        
     }
     
     public static func startGame(withDance dance: Dance, withSong song: Song, withDancer dancer: Dancer) -> SKView {
         
+        // Set up game screen.
+        let (gameView, gameScene) = setUpGameScreen()
         
-        // SETTING UP SCENE
-        let gameView = SKView(frame: CGRect(x: 0, y: 0, width: 600, height: 775))
-        let gameScene = GameScene(size: CGSize(width: 600, height: 775))
-        gameView.presentScene(gameScene)
+        // Set up dance displayer and the corresponding music.
+        initDanceDisplayer(song: song, dance: dance, gameScene: gameScene)
+        initMusic(gameScene: gameScene, song: song)
         
-        // INIT DANCE DISPLAYER & display it!
-        // FIXME: Hardcoded values!
-        //var clockRate = (1/110) * 60
-        switch song {
-        case .odeToJoy:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.55, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        case .minuet:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.5, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        case .turkishMarch_1:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.55, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        case .turkishMarch_2:
-            let danceDisplayer = initDanceDisplayer(dance: dance, clockRate: 0.55, gameScene: gameScene, fallingDownRate: 6)
-            danceDisplayer.displayDance()
-        }
-    
-        
-        switch song {
-        case .odeToJoy:
-            initMusic(gameScene: gameScene, offset: 4.72, fileName: "ode_to_joy.m4a")
-        case .minuet:
-            initMusic(gameScene: gameScene, offset: 4.72, fileName: "minuet.m4a")
-        case .turkishMarch_1:
-            initMusic(gameScene: gameScene, offset: 4.60, fileName: "turkish_march_1.m4a")
-        case .turkishMarch_2:
-            initMusic(gameScene: gameScene, offset: 4.50, fileName: "turkish_march_2.m4a")
-        }
-        
-        // SET UP DANCER
+        // Set up the dancer.
         initDancer(dancer: dancer, gameScene: gameScene)
         
         return gameView
-        
     }
     
-    // TODO: Rethink where you will initialise the song.
-    // TODO: MUSIC CAN BE FOUND HERE
-    static public func initMusic(gameScene: GameScene, offset: Double, fileName: String) {
-        var testMusicTrack = MusicTrack(offset: offset, fileName: fileName)
+    // Sets up the Game View and Game Scene.
+    static func setUpGameScreen() -> (SKView, GameScene) {
+        let gameView = SKView(frame: CGRect(x: 0, y: 0, width: 600, height: 775))
+        let gameScene = GameScene(size: CGSize(width: 600, height: 775))
+        gameView.presentScene(gameScene)
+        return (gameView, gameScene)
+    }
+    
+    // Sets up the Music for the level & starts it.
+    static public func initMusic(gameScene: GameScene, song: Song) {
+        var testMusicTrack: MusicTrack
+        switch song {
+        case .twinkletwinkle:
+            testMusicTrack = MusicTrack(offset: TWINKLE_TWINKLE_OFFSET, fileName: TWINKLE_TWINKLE)
+        case .odeToJoy:
+            testMusicTrack = MusicTrack(offset: ODE_TO_JOY_OFFSET, fileName: ODE_TO_JOY)
+        case .minuet:
+            testMusicTrack = MusicTrack(offset: MINUET_OFFSET, fileName: MINUET)
+        case .turkishMarch_1:
+            testMusicTrack = MusicTrack(offset: TURKISH_MARCH_1_OFFSET, fileName: TURKISH_MARCH_1)
+        case .turkishMarch_2:
+            testMusicTrack = MusicTrack(offset: TURKISH_MARCH_2_OFFSET, fileName: TURKISH_MARCH_2)
+        }
         gameScene.addChild(testMusicTrack.audioNode)
         testMusicTrack.startSong()
     }
     
-    // TODO: fix up pre-loaded Dances
-    // FIXME: Currently only doing easy song.
-    // This method sets up the Dances needed for the game.
-    static func initDance(predefinedDance: PredefinedDance) -> Dance {
-        
-        let newDance = Dance()
-        switch predefinedDance {
+    // Sets up the dance.
+    static func initDance(predefinedSong: Song) -> Dance {
+        let dance = Dance()
+        switch predefinedSong {
         case .twinkletwinkle:
-            newDance.loadTwinkleTwinkle()
-        }
-        return newDance
-    }
-    
-    static func initDance(preDefinedSong: Song) -> Dance {
-        let newDance = Dance()
-        
-        switch preDefinedSong {
+            dance.loadTwinkleTwinkle()
+            dance.createGradient(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
         case .odeToJoy:
-            newDance.loadOdeToJoy()
+            dance.loadOdeToJoy()
+            dance.createGradient(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
         case .minuet:
-            newDance.loadMinuet()
+            dance.loadMinuet()
+            dance.createGradient(#colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1), #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1))
         case .turkishMarch_1:
-            newDance.loadTurkishMarch_1()
+            dance.loadTurkishMarch_1()
+            dance.createGradient(#colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))
         case .turkishMarch_2:
-            newDance.loadTurkishMarch_2()
+            dance.loadTurkishMarch_2()
+            dance.createGradient(#colorLiteral(red: 0, green: 0.4117647059, blue: 0.8509803922, alpha: 1), #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1))
         }
-        
-        return newDance
+        return dance
     }
     
-    static func initDanceDisplayer(dance: Dance, clockRate: Double, gameScene: GameScene, fallingDownRate: Double) -> DanceDisplayer {
-        return DanceDisplayer(dance: dance, clockRate: clockRate, scene: gameScene, fallingDownRate: fallingDownRate)
+    // This method creates the Dance Displayer given the predefined song and starts it.
+    static func initDanceDisplayer(song: Song, dance: Dance, gameScene: GameScene) {
+        var dd: DanceDisplayer
+        switch song {
+        case .twinkletwinkle:
+           dd = DanceDisplayer(dance: dance, clockRate: 0.5, scene: gameScene, fallingDownRate: 6)
+        case .odeToJoy:
+            dd = DanceDisplayer(dance: dance, clockRate: 0.55, scene: gameScene, fallingDownRate: 6)
+        case .minuet:
+            dd = DanceDisplayer(dance: dance, clockRate: 0.5, scene: gameScene, fallingDownRate: 6)
+        case .turkishMarch_1:
+            dd = DanceDisplayer(dance: dance, clockRate: 0.55, scene: gameScene, fallingDownRate: 6)
+        case .turkishMarch_2:
+            dd = DanceDisplayer(dance: dance, clockRate: 0.55, scene: gameScene, fallingDownRate: 6)
+        }
+        dd.displayDance()
     }
     
+    // This method initialises the dancer used for the scene.
     static func initDancer(dancer: Dancer, gameScene: GameScene) {
         switch dancer {
         case .avocado:
