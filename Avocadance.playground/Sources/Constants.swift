@@ -29,6 +29,7 @@ public let PINGU_5 = "penguin/pinguino_the_kidd_upside_down.png"
 
 public let BG = "dark_bg_with_stars.png"
 public let DANCE_PANEL = "dance_panel.png"
+public let DANCE_PANEL_SHADOW = "dance_panel_shadow.png"
 public let LOGO = "logo.png"
 
 // Paths to music.

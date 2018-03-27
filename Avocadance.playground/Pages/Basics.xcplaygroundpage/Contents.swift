@@ -7,7 +7,7 @@ import PlaygroundSupport
  
  ## Instructions
  - Circles and rectangle shapes (also called **rhythms**) move from the top of the screen slowly downwards.
- - Tap on one of the four corresponding blue rectangles (also called **rhythm panels**) at the lower half of the game screen ***when*** a rhythm is directly in the center of it. This may sound harder than it is, but as soon as you hear the music, it will be super easy to do! 🕺💃
+ - Tap on one of the four corresponding cyan rectangles (also called **rhythm panels**) at the lower half of the game screen ***when*** a rhythm is directly in the center of it. This may sound harder than it is, but as soon as you hear the music, it will be super easy to do! 🕺💃
  - The circle shaped rhythms are called **Tap Rhythms**. Just simply tap when one of them is aligned on a rhythm panel.
  - The rectangle shaped rhythms are called **Slide Rhythms**. When one of these figures arrives, make sure to hold your finger when it arrives, and let it go when the slider ends.
  - You collect points when you tap or slide a rhythm at the correct time!

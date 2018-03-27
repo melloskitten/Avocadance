@@ -17,10 +17,10 @@
  
 - - -
  Make sure to ▶️ on every page ❤️
+## Let's start our journey! [Click here!](@next)
 
  */
 
-//: ## Let's start our journey! [Click here!](@next)
 
 import PlaygroundSupport
 PlaygroundSupport.PlaygroundPage.current.liveView = Setup.initIntroScene()

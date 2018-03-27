@@ -90,12 +90,12 @@ public class GameScene: SKScene {
     @IBAction func longPressHandler(_ gestureRecognizer : UIGestureRecognizer) {
         if gestureRecognizer.state == .began {
             self.sliderTime = Date.init()
-            // Call the other point giving method
+            // Call the other point giving method.
             pointsForSliderBegin(gestureRecognizer)
         }
         if gestureRecognizer.state == .ended {
             let interval = (Date.init()).timeIntervalSince(sliderTime)
-            // calculate points
+            // Calculate points.
             pointsForSlider(timeInterval: interval, gestureRecognizer)
         }
     }
@@ -109,7 +109,6 @@ public class GameScene: SKScene {
     func getIntersectingNodes(gestureRecognizer: UIGestureRecognizer) -> [SKNode] {
         let fromTranslation = gestureRecognizer.location(in: self.view)
         let translation = self.convertPoint(fromView: fromTranslation)
-        //print(nodes(at: translation))
         return nodes(at: translation)
     }
     
@@ -127,8 +126,6 @@ public class GameScene: SKScene {
             let referenceValue = clockRate * Double(sliderLength - 1)
             let deviation = abs(referenceValue - timeInterval)
             let point = Int(10 * ((1/(1+deviation))))
-            //print(referenceValue)
-            //print(deviation)
             updatePoints(point: point)
         }
     }
@@ -139,8 +136,6 @@ public class GameScene: SKScene {
         
         let intersectingNodes = getIntersectingNodes(gestureRecognizer: gestureRecognizer)
         
-        //print("got here")
-        //print(intersectingNodes)
         if sliderRhythmWasTapped(nodes: intersectingNodes){
             
             // Animate the Dance.
@@ -181,7 +176,7 @@ public class GameScene: SKScene {
         }
     }
     
-    // Animates the next dance move
+    // Animates the next dance move. (It's always different from the previous one.)
         func animateDancer() {
         var rand = (Int(arc4random_uniform(UInt32(4))))
         var previous = 0
@@ -195,12 +190,12 @@ public class GameScene: SKScene {
             dancerSprites[i].isHidden = true
         }
         
+        // Make sure next move is not the previous one.
         if previous == rand {
             rand = (rand + 1) % 5
         }
-        
+            
         dancerSprites[rand].isHidden = false
-        
     }
     
     func updatePoints(point: Int) {
@@ -260,7 +255,13 @@ public class GameScene: SKScene {
             
             let xOffset = CGFloat(i * Int(floor((550)/4)) + 94)
             let yOffset = CGFloat(150)
-            let rhythmChecker = RhythmChecker(imageNamed: "dance_panel.png", x: xOffset, y: yOffset)
+            let rhythmCheckerShadow = SKSpriteNode(imageNamed: DANCE_PANEL_SHADOW)
+            rhythmCheckerShadow.position.x = xOffset
+            rhythmCheckerShadow.position.y = yOffset - 60
+            rhythmCheckerShadow.zPosition = CGFloat(zIndex)
+            zIndex = zIndex + 1
+            addChild(rhythmCheckerShadow)
+            let rhythmChecker = RhythmChecker(imageNamed: DANCE_PANEL, x: xOffset, y: yOffset)
             rhythmChecker.zPosition = CGFloat(zIndex)
             zIndex = zIndex + 1
             addChild(rhythmChecker)
